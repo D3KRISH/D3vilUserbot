@@ -25,6 +25,7 @@ jikanpy
 justwatch
 lottie
 lyricsgenius
+multiutility
 nekos.py
 patool
 Pillow
