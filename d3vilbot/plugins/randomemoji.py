@@ -1,6 +1,5 @@
 import os
 from . import *
-from ..utils import admin_cmd, sudo_cmd, edit_or_reply
 from multiutility import EmojiCreator
 
 Emoji = EmojiCreator()
