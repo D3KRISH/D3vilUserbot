@@ -169,7 +169,7 @@ def load_addons(shortname):
         mod.tgbot = bot.tgbot
         mod.Var = Config
         mod.Config = Config
-        mod.edit_or_reply = edit_or_reply
+#        mod.edit_or_reply = edit_or_reply
         mod.delete_d3vil = delete_d3vil
         mod.eod = delete_d3vil
         mod.admin_cmd = d3vil_cmd
