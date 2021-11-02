@@ -58,6 +58,7 @@ for name in files:
         shortname = path1.stem
         load_module(shortname.replace(".py", ""))
 
+# Assistant.....
 assistant = os.environ.get("ASSISTANT", None)
 async def assistants():
     if assistant == "ON":
@@ -73,20 +74,31 @@ async def assistants():
 bot.loop.run_until_complete(assistants())
 
 # Extra Modules...
-# extra_repo = Config.EXTRA_REPO or "https://github.com/TEAM-D3VIL/D3VILADDONS"
-# if Config.EXTRA == "True":
-#     try:
-#         os.system(f"git clone {extra_repo}")
-#     except BaseException:
-#         pass
-#     LOGS.info("Installing Extra Plugins")
-#     path = "d3vilbot/plugins/*.py"
-#     files = glob.glob(path)
-#      for name in files:
-#         with open(name) as ex:
-#             path2 = Path(ex.name)
-#             shortname = path2.stem
-#             load_module(shortname.replace(".py", ""))
+addon = os.environ.get("EXTRA_REPO", None)             
+async def addons():
+    if addon == "True":
+        extra_repo = "https://github.com/TEAM-D3VIL/D3VILADDONS"
+        try:
+            os.system(f"git clone {extra_repo}")  
+        except BaseException:
+            pass
+        import glob
+        LOGS.info("🔱Loading Extra Plugin🔱")
+        path = "D3VILADDONS/*.py"
+        files = glob.glob(path)
+        for name in files:
+            with open(name) as ex:
+                path2 = Path(ex.name)
+                shortname = path2.stem
+                try:
+                    load_addons(shortname.replace(".py", ""))
+                    if not shortname.startswith("__") or shortname.startswith("_"):
+                        LOGS.info(f"[D3VIL-BOT 2.0] - Addons -  ✅Installed✅ - {shortname}")
+                except Exception as e:
+                    LOGS.warning(f"[D3VIL-BOT 2.0] - Addons - ⚠️⚡ERROR⚡⚠️ - {shortname}")
+                    LOGS.warning(str(e))
+    else:
+        print("Addons Not Loading")
 
 # let the party begin...
 LOGS.info("➪𝚂𝚃𝙰𝚁𝚃𝙸𝙽𝙶 𝙱𝙾𝚃 𝙼𝙾𝙳𝙴")
@@ -111,7 +123,7 @@ async def d3vil_is_on():
 
 
     try:
-        await bot(JoinChannelRequest("@D3VIL_SUPORT"))
+        await bot(JoinChannelRequest("@D3VIL_BOT_SUPPORT"))
     except BaseException:
         pass
 
