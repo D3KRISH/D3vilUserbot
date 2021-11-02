@@ -100,6 +100,8 @@ async def addons():
     else:
         print("Addons Not Loading")
 
+bot.loop.run_until_complete(addons())
+
 # let the party begin...
 LOGS.info("➪𝚂𝚃𝙰𝚁𝚃𝙸𝙽𝙶 𝙱𝙾𝚃 𝙼𝙾𝙳𝙴")
 tbot.start()
