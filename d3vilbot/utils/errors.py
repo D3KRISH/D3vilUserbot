@@ -160,21 +160,20 @@ def load_addons(shortname):
         name = "D3VILADDONS.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
-        mod.d3vil = d3vil
+#        mod.d3vil = d3vil
         mod.bot = bot
         mod.bot = bot
+        mod.command = command
         mod.borg = bot
         mod.d3vilbot = bot
         mod.tgbot = bot.tgbot
-        mod.Var = Var
+        mod.Var = Config
         mod.Config = Config
         mod.edit_or_reply = edit_or_reply
         mod.delete_d3vil = delete_d3vil
         mod.eod = delete_d3vil
         mod.admin_cmd = d3vil_cmd
         mod.logger = logging.getLogger(shortname)
-        # support for uniborg
-        sys.modules["uniborg.util"] = d3vilbot.utils
         # support for D3VILBOT originals
         sys.modules["userbot.utils"] = d3vilbot.utils
         sys.modules["userbot"] = d3vilbot
