@@ -163,7 +163,7 @@ def load_addons(shortname):
 #        mod.d3vil = d3vil
         mod.bot = bot
         mod.bot = bot
-        mod.command = command
+#        mod.command = command
         mod.borg = bot
         mod.d3vilbot = bot
         mod.tgbot = bot.tgbot
