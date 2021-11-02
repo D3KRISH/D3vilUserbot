@@ -185,7 +185,7 @@ def load_addons(shortname):
         mod.bot = bot
 #        mod.command = command
         mod.borg = bot
-        mod.d3vilbot = bot
+#        mod.d3vilbot = bot
         mod.tgbot = bot.tgbot
         mod.Var = Config
         mod.Config = Config
