@@ -133,7 +133,55 @@ def start_assistant(shortname):
         mod.tgbot = bot.tgbot
         spec.loader.exec_module(mod)
         sys.modules["d3vilbot.assistant" + shortname] = mod
-        print("[🤴Assistant🤴 2.1] ~ HAS ~ 💞Installed💞 ~" + shortname)  
+        print("[⚡Assistant⚡ 2.0] ~ HAS ~ •Installed۝۝" + shortname)  
 
+#Addons...
 
-# d3vilbot
+def load_addons(shortname):
+    if shortname.startswith("__"):
+        pass
+    elif shortname.endswith("_"):
+        import userbot.utils
+        import sys
+        import importlib
+        from pathlib import Path
+        path = Path(f"D3VILADDONS/{shortname}.py")
+        name = "D3VILADDONS.{}".format(shortname)
+        spec = importlib.util.spec_from_file_location(name, path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        LOGS.info("♦️Extra Plugin♦️ ~ " + shortname)
+    else:
+        import userbot.utils
+        import sys
+        import importlib
+        from pathlib import Path
+        path = Path(f"D3VILADDONS/{shortname}.py")
+        name = "D3VILADDONS.{}".format(shortname)
+        spec = importlib.util.spec_from_file_location(name, path)
+        mod = importlib.util.module_from_spec(spec)
+        mod.d3vil = d3vil
+        mod.bot = bot
+        mod.bot = bot
+        mod.borg = bot
+        mod.d3vilbot = bot
+        mod.tgbot = bot.tgbot
+        mod.Var = Var
+        mod.Config = Config
+        mod.edit_or_reply = edit_or_reply
+        mod.delete_d3vil = delete_d3vil
+        mod.eod = delete_d3vil
+        mod.admin_cmd = d3vil_cmd
+        mod.logger = logging.getLogger(shortname)
+        # support for uniborg
+        sys.modules["uniborg.util"] = d3vilbot.utils
+        # support for D3VILBOT originals
+        sys.modules["userbot.utils"] = d3vilbot.utils
+        sys.modules["userbot"] = d3vilbot
+        # support for paperplaneextended
+        sys.modules["userbot.events"] = d3vilbot
+        spec.loader.exec_module(mod)
+        # for imports
+        sys.modules["D3VILADDONS." + shortname] = mod
+        LOGS.info("🔱Extra Plugin🔱 ~ " + shortname)
+#d3vilbot
