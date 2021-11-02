@@ -180,10 +180,10 @@ def load_addons(shortname):
         name = "D3VILADDONS.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
-#        mod.d3vil = d3vil
+        mod.d3vil = d3vil
         mod.bot = bot
         mod.bot = bot
-#        mod.command = command
+        mod.command = command
         mod.borg = bot
         mod.d3vilbot = bot
         mod.tgbot = bot.tgbot
@@ -195,10 +195,10 @@ def load_addons(shortname):
         mod.admin_cmd = d3vil_cmd
         mod.logger = logging.getLogger(shortname)
         # support for D3VILBOT originals
-#        sys.modules["userbot.utils"] = d3vilbot.utils
-#        sys.modules["userbot"] = d3vilbot
+        sys.modules["userbot.utils"] = d3vilbot.utils
+        sys.modules["userbot"] = d3vilbot
         # support for paperplaneextended
-#        sys.modules["userbot.events"] = d3vilbot
+        sys.modules["userbot.events"] = d3vilbot
         spec.loader.exec_module(mod)
         # for imports
         sys.modules["D3VILADDONS." + shortname] = mod
