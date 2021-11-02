@@ -196,9 +196,9 @@ def load_addons(shortname):
         mod.logger = logging.getLogger(shortname)
         # support for D3VILBOT originals
         sys.modules["userbot.utils"] = d3vilbot.utils
-        sys.modules["userbot"] = d3vilbot
+#        sys.modules["userbot"] = d3vilbot
         # support for paperplaneextended
-#        sys.modules["userbot.events"] = d3vilbot
+        sys.modules["userbot.events"] = d3vilbot
         spec.loader.exec_module(mod)
         # for imports
         sys.modules["D3VILADDONS." + shortname] = mod
