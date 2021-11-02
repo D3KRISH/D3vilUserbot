@@ -9,7 +9,7 @@ from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRe
 
 from d3vilbot import LOGS, bot, tbot
 from d3vilbot.config import Config
-from d3vilbot.utils import load_module, start_assistant
+from d3vilbot.utils import load_module, start_assistant, load_addons
 from d3vilbot.version import __d3vil__ as d3vilver
 hl = Config.HANDLER
 D3VIL_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
