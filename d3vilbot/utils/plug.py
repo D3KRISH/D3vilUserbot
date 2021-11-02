@@ -153,7 +153,7 @@ def start_assistant(shortname):
         mod.tgbot = bot.tgbot
         spec.loader.exec_module(mod)
         sys.modules["d3vilbot.assistant" + shortname] = mod
-        print("[⚡Assistant⚡ 2.0] ~ HAS ~ •Installed۝۝" + shortname)  
+        print("[⚡Assistant⚡ 2.0] ~ HAS ~ •Installed۝۝"+ shortname)  
 
 #Addons...
 
@@ -180,7 +180,7 @@ def load_addons(shortname):
         name = "D3VILADDONS.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
-        mod.d3vil = d3vil
+#        mod.d3vil = d3vil
         mod.bot = bot
         mod.bot = bot
         mod.command = command
