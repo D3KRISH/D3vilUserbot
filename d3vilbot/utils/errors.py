@@ -36,7 +36,7 @@ def errors_handler(func):
 
             text = "**𝓓3𝓿𝓲𝓵𝓫𝓸𝓽 𝓒𝓡𝓐𝓢𝓗 𝓡𝓔𝓟𝓞𝓡𝓣**\n\n"
 
-            link = "[here](https://t.me/D3_krish)"
+            link = "[here](https://t.me/D3VIL_BOT_SUPPORT)"
             text += "If you wanna you can report it"
             text += f"- just forward this message {link}.\n"
             text += "Nothing is logged except the fact of error and date\n"
