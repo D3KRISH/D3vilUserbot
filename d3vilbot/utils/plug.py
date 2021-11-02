@@ -192,7 +192,7 @@ def load_addons(shortname):
         mod.edit_or_reply = edit_or_reply
         mod.delete_d3vil = delete_d3vil
         mod.eod = delete_d3vil
-#        mod.admin_cmd = d3vil_cmd
+        mod.admin_cmd = d3vil_cmd
         mod.logger = logging.getLogger(shortname)
         # support for D3VILBOT originals
 #        sys.modules["userbot.utils"] = d3vilbot.utils
