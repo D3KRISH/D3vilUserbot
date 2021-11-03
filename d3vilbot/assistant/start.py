@@ -5,6 +5,7 @@ import re
 from telethon import Button, custom, events
 from telethon.tl.functions.users import GetFullUserRequest
 
+from d3vilbot.config import Config
 from d3vilbot import bot
 from d3vilbot.sql.blacklist_assistant import (
     add_nibba_in_db,
