@@ -27,7 +27,7 @@ async def start(event):
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
     firstname = replied_user.user.first_name
     vent = event.chat_id
-    d3vil_pic = f"https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
+    d3vil_pic = Config.ALIVE_PIC or "https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
     starttext = f"Hello, {firstname} \n! Nice To Meet You, Well I Am {bot_id}, An Powerfull Assistant Bot. \n\nMy [➤ Master](tg://user?id={bot.uid}) \nYou Can Talk/Contact My Master Using This Bot. \n\nIf You Want Your Own Assistant You Can Deploy From Button Below. \n\nPowered By [『ᗪ3ʋɨʟɮօȶ』](https://t.me/D3VIL_BOT_OFFICIAL)"
     if event.sender_id == bot.uid:
         await tgbot.send_message(
