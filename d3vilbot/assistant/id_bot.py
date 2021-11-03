@@ -1,6 +1,7 @@
 from telethon import events
 from telethon.utils import pack_bot_file_id
 from d3vilbot import bot
+from d3vilbot.random_strings import *
 
 @tgbot.on(events.NewMessage(pattern="^/id"))
 async def _(event):
@@ -27,7 +28,7 @@ async def _(event):
             event.chat_id, "Current Chat ID: `{}`".format(str(event.chat_id))
         )
 
-# credit goes to Proboy & legendx
+# credit goes to Proboy & legendx, @D3_krish
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 import os
@@ -50,7 +51,7 @@ async def _(event):
 async def get_user(event):
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
-        replied_user = await xbot(GetFullUserRequest(previous_message.sender_id))
+        replied_user = await tgbot(GetFullUserRequest(previous_message.sender_id))
     else:
         user = event.pattern_match.group(1)
 
@@ -66,11 +67,11 @@ async def get_user(event):
 
             if isinstance(probable_user_mention_entity, MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
-                replied_user = await xbot(GetFullUserRequest(user_id))
+                replied_user = await tgbot(GetFullUserRequest(user_id))
                 return replied_user
         try:
-            user_object = await xbot.get_entity(user)
-            replied_user = await xbot(GetFullUserRequest(user_object.id))
+            user_object = await tgbot.get_entity(user)
+            replied_user = await tgbot(GetFullUserRequest(user_object.id))
         except (TypeError, ValueError) as err:
             await event.reply("I don't seem to have interacted with this user before - please forward a message from them to give me control! (like a voodoo doll, I need a piece of them to be able to execute certain commands...)")
             return None
@@ -101,7 +102,7 @@ async def detail(replied_user, event):
     if username:
       caption += f"<b>➥ Username:</b> <i>{username}</i> \n"
     caption += f'<b>➥ User link:</b> <i><a href="tg://user?id={user_id}">Perma Link</a></i>'
-    if user_id in DEVS:
+    if user_id in DEVLIST:
         caption += "\n<b>╚⊶⊶⊶⊶⊶ This is one of my DEVs ;) ⊷⊷⊷⊷⊷╝</b>"
     if not event.sender_id == boy:
        if user_id == boy:
