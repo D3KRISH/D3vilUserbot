@@ -32,7 +32,6 @@ async def start(event):
     if event.sender_id == bot.uid:
         await tgbot.send_message(
             vent,
-            file= d3vil_pic
             message=f"Hi Sir/Miss, It's Me {bot_id}, Your Assistant ! \nHow Can I help U?",
             buttons=[
                 [custom.Button.inline("Show Users 🔥", data="users")],
@@ -51,6 +50,7 @@ async def start(event):
             add_usersid_in_db(event.sender_id)
         await tgbot.send_message(
             event.chat_id,
+            file=d3vil_pic,
             message=starttext,
             link_preview=False,
             buttons=[
