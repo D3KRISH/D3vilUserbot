@@ -33,8 +33,8 @@ from telethon.tl.types import MessageEntityMentionName
 import os
 
 
-@xbot.on(events.NewMessage(pattern="/info ?(.*)"))
-async def who(event):
+@tgbot.on(events.NewMessage(pattern="/info ?(.*)"))
+async def _(event):
     replied_user = await get_user(event)
     try:
         caption = await detail(replied_user, event)
